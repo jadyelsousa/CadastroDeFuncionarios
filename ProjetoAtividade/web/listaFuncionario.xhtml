@@ -1,0 +1,39 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+                template="./modelo.xhtml"
+                xmlns:p="http://primefaces.org/ui"
+                xmlns:h="http://xmlns.jcp.org/jsf/html">
+
+    <ui:define name="content">
+        <h:form>
+            <h2>Listagem de funcionários</h2>
+         
+            <p:dataTable 
+                value="#{bean.funList}"
+                var="f"
+                emptyMessage="Nenhum funcionario cadastrado"
+                rows="10"
+                paginator="false"
+                paginatorPosition="botton">
+           
+                <p:column headerText="Código" >
+                    <p:outputLabel value="#{f.cpf}" />
+                </p:column>    
+                <p:column headerText="Nome"  >
+                    <p:outputLabel value="#{f.nome}" />
+                </p:column>
+                <p:column headerText="Data de nascimento"  >
+                    <p:outputLabel value="#{f.dt_nascimento}" />
+                </p:column>
+                <p:column headerText="Cargo"  >
+                    <p:outputLabel value="#{f.cargo.nome}" />
+                </p:column>
+
+
+
+            </p:dataTable>
+        </h:form>
+    </ui:define>
+
+</ui:composition>
